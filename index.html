@@ -1,499 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formula-X | Student Formula Hub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+  <title>Formula-X | Learn Smarter</title>
 
-body{
-  background:#0b1020;
-  color:white;
-  min-height:100vh;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-header{
-  padding:25px 18px;
-  text-align:center;
-  background:linear-gradient(135deg,#111a38,#182b59);
-}
+    body {
+      background: #f5f7fb;
+      color: #172033;
+    }
 
-.logo{
-  font-size:34px;
-  font-weight:800;
-  color:#62d9ff;
-}
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.tagline{
-  margin-top:8px;
-  color:#b9c7e8;
-  font-size:14px;
-}
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
 
-.container{
-  width:92%;
-  max-width:1000px;
-  margin:25px auto;
-}
+    .logo span {
+      color: #38bdf8;
+    }
 
-.search{
-  width:100%;
-  padding:16px;
-  border:none;
-  outline:none;
-  border-radius:14px;
-  background:#151e38;
-  color:white;
-  font-size:16px;
-  margin-bottom:25px;
-}
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    }
 
-.search::placeholder{
-  color:#8491ad;
-}
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
+    .hero h1 span {
+      color: #0284c7;
+    }
 
-.card{
-  background:#151e38;
-  border:1px solid #263556;
-  border-radius:18px;
-  padding:24px 15px;
-  text-align:center;
-  cursor:pointer;
-  transition:.25s;
-}
+    .hero p {
+      font-size: 18px;
+      color: #64748b;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+    }
 
-.card:hover{
-  transform:translateY(-4px);
-  border-color:#62d9ff;
-}
+    .search-box {
+      margin: 30px auto 0;
+      max-width: 600px;
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      padding: 7px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
 
-.icon{
-  font-size:35px;
-  margin-bottom:10px;
-}
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px;
+      font-size: 16px;
+    }
 
-.card h3{
-  font-size:18px;
-}
+    .search-box button {
+      border: none;
+      background: #0284c7;
+      color: white;
+      padding: 0 22px;
+      border-radius: 9px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.card p{
-  color:#8f9dbb;
-  font-size:12px;
-  margin-top:6px;
-}
+    .section {
+      padding: 50px 7%;
+    }
 
-.section{
-  margin-top:30px;
-}
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
 
-.section h2{
-  margin-bottom:15px;
-  font-size:22px;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-.formula{
-  background:#151e38;
-  border:1px solid #263556;
-  padding:18px;
-  border-radius:15px;
-  margin-bottom:12px;
-}
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: 0.2s;
+    }
 
-.formula h3{
-  color:#62d9ff;
-  margin-bottom:8px;
-}
+    .card:hover {
+      transform: translateY(-4px);
+    }
 
-.formula p{
-  color:#c8d1e5;
-  line-height:1.5;
-}
+    .card .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
 
-.formula-code{
-  display:block;
-  background:#090d18;
-  padding:12px;
-  border-radius:10px;
-  margin:10px 0;
-  color:#7df7b2;
-  font-size:18px;
-  overflow-x:auto;
-}
+    .card h3 {
+      margin-bottom: 10px;
+    }
 
-button{
-  border:none;
-  padding:10px 15px;
-  border-radius:9px;
-  background:#62d9ff;
-  color:#06101a;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .card p {
+      color: #64748b;
+      line-height: 1.5;
+    }
 
-.hidden{
-  display:none;
-}
+    .formula {
+      background: #111827;
+      color: white;
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      text-align: center;
+    }
 
-footer{
-  text-align:center;
-  padding:30px 10px;
-  color:#687692;
-  font-size:13px;
-}
+    .tip {
+      background: #ecfeff;
+      border-left: 5px solid #06b6d4;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
+      line-height: 1.6;
+    }
 
-@media(max-width:600px){
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #cbd5e1;
+      padding: 25px;
+      margin-top: 30px;
+    }
 
-  .logo{
-    font-size:28px;
-  }
-}
-</style>
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .search-box button {
+        padding: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">⚡ FORMULA-X</div>
-  <div class="tagline">Learn formulas. Understand concepts. Revise faster.</div>
-</header>
+  <header>
+    <div class="logo">Formula<span>X</span></div>
+    <div>Learn Smarter 🚀</div>
+  </header>
 
-<div class="container">
+  <section class="hero">
 
-  <input
-    id="search"
-    class="search"
-    type="text"
-    placeholder="🔍 Search a formula, topic or subject..."
-    onkeyup="searchFormula()"
-  >
+    <h1>Master Your <span>Formulas</span></h1>
 
-  <div class="grid">
+    <p>
+      Quick formulas, easy tricks and smart revision tools
+      for students.
+    </p>
 
-    <div class="card" onclick="showSubject('physics')">
-      <div class="icon">⚛️</div>
-      <h3>Physics</h3>
-      <p>Motion, Force, Energy & More</p>
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search a formula..."
+      >
+
+      <button onclick="searchFormula()">Search</button>
     </div>
 
-    <div class="card" onclick="showSubject('chemistry')">
-      <div class="icon">🧪</div>
-      <h3>Chemistry</h3>
-      <p>Mole, Gas, Solutions & More</p>
-    </div>
+  </section>
 
-    <div class="card" onclick="showSubject('math')">
-      <div class="icon">📐</div>
-      <h3>Mathematics</h3>
-      <p>Algebra, Trigonometry & More</p>
-    </div>
 
-    <div class="card" onclick="showAll()">
-      <div class="icon">📚</div>
-      <h3>Formula Library</h3>
-      <p>Explore all formulas</p>
-    </div>
+  <section class="section">
 
-    <div class="card" onclick="showTricks()">
-      <div class="icon">🧠</div>
-      <h3>Formula Tricks</h3>
-      <p>Remember formulas easily</p>
-    </div>
+    <h2>Explore Formula-X</h2>
 
-    <div class="card" onclick="showImportant()">
-      <div class="icon">⭐</div>
-      <h3>Important Formulas</h3>
-      <p>Quick exam revision</p>
-    </div>
+    <div class="cards">
 
-    <div class="card" onclick="showRevision()">
-      <div class="icon">📝</div>
-      <h3>Quick Revision</h3>
-      <p>Revise important concepts</p>
-    </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Physics</h3>
+        <p>Important physics formulas in one place.</p>
 
-    <div class="card" onclick="calculator()">
-      <div class="icon">🧮</div>
-      <h3>Calculators</h3>
-      <p>Quick calculations</p>
-    </div>
-
-  </div>
-
-  <div id="results" class="section">
-    <h2>🔥 Popular Formulas</h2>
-
-    <div class="formula">
-      <h3>Newton's Second Law</h3>
-      <span class="formula-code">F = ma</span>
-      <p>Force = mass × acceleration</p>
-    </div>
-
-    <div class="formula">
-      <h3>Kinetic Energy</h3>
-      <span class="formula-code">KE = ½mv²</span>
-      <p>Energy possessed by an object due to its motion.</p>
-    </div>
-
-    <div class="formula">
-      <h3>Ohm's Law</h3>
-      <span class="formula-code">V = IR</span>
-      <p>Voltage = current × resistance.</p>
-    </div>
-
-    <div class="formula">
-      <h3>Quadratic Formula</h3>
-      <span class="formula-code">x = (-b ± √(b² - 4ac)) / 2a</span>
-      <p>Used to solve quadratic equations.</p>
-    </div>
-
-    <div class="formula">
-      <h3>Ideal Gas Equation</h3>
-      <span class="formula-code">PV = nRT</span>
-      <p>Relates pressure, volume, amount and temperature of an ideal gas.</p>
-    </div>
-
-  </div>
-
-</div>
-
-<footer>
-  © 2026 Formula-X • Built for students 🚀
-</footer>
-
-<script>
-
-const formulas = [
-
-{
-name:"Newton's Second Law",
-subject:"physics",
-formula:"F = ma",
-description:"Force = mass × acceleration"
-},
-
-{
-name:"Kinetic Energy",
-subject:"physics",
-formula:"KE = ½mv²",
-description:"Energy due to motion."
-},
-
-{
-name:"Potential Energy",
-subject:"physics",
-formula:"PE = mgh",
-description:"Gravitational potential energy."
-},
-
-{
-name:"Ohm's Law",
-subject:"physics",
-formula:"V = IR",
-description:"Voltage = current × resistance."
-},
-
-{
-name:"Momentum",
-subject:"physics",
-formula:"p = mv",
-description:"Momentum = mass × velocity."
-},
-
-{
-name:"Ideal Gas Equation",
-subject:"chemistry",
-formula:"PV = nRT",
-description:"Equation for an ideal gas."
-},
-
-{
-name:"Molarity",
-subject:"chemistry",
-formula:"M = moles / volume",
-description:"Moles of solute per litre of solution."
-},
-
-{
-name:"Density",
-subject:"chemistry",
-formula:"d = m / V",
-description:"Mass per unit volume."
-},
-
-{
-name:"Quadratic Formula",
-subject:"math",
-formula:"x = (-b ± √(b² - 4ac)) / 2a",
-description:"Used to solve quadratic equations."
-},
-
-{
-name:"Pythagoras Theorem",
-subject:"math",
-formula:"a² + b² = c²",
-description:"Relation between sides of a right triangle."
-},
-
-{
-name:"Distance Formula",
-subject:"math",
-formula:"d = √((x₂-x₁)² + (y₂-y₁)²)",
-description:"Distance between two points."
-}
-
-];
-
-function display(list,title){
-
-  const results=document.getElementById("results");
-
-  results.innerHTML="<h2>"+title+"</h2>";
-
-  if(list.length===0){
-    results.innerHTML+="<p>No formulas found.</p>";
-    return;
-  }
-
-  list.forEach(f=>{
-
-    results.innerHTML+=`
-      <div class="formula">
-        <h3>${f.name}</h3>
-        <span class="formula-code">${f.formula}</span>
-        <p>${f.description}</p>
+        <div class="formula">
+          F = ma
+        </div>
       </div>
-    `;
 
-  });
 
-}
+      <div class="card">
+        <div class="icon">📐</div>
+        <h3>Mathematics</h3>
+        <p>Useful formulas and easy remembering tricks.</p>
 
-function showSubject(subject){
+        <div class="formula">
+          a² + b² = c²
+        </div>
+      </div>
 
-  const list=formulas.filter(f=>f.subject===subject);
 
-  display(list,
-    subject==="physics" ? "⚛️ Physics Formulas" :
-    subject==="chemistry" ? "🧪 Chemistry Formulas" :
-    "📐 Mathematics Formulas"
-  );
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Chemistry</h3>
+        <p>Important equations and concepts for quick revision.</p>
 
-}
+        <div class="formula">
+          PV = nRT
+        </div>
+      </div>
 
-function showAll(){
-  display(formulas,"📚 Formula Library");
-}
 
-function showImportant(){
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>Formula Tricks</h3>
+        <p>Simple tricks to remember difficult formulas.</p>
 
-  display(
-    formulas.slice(0,7),
-    "⭐ Important Formulas"
-  );
+        <div class="formula">
+          Learn → Recall → Practice
+        </div>
+      </div>
 
-}
+    </div>
 
-function showTricks(){
 
-  document.getElementById("results").innerHTML=`
+    <div class="tip">
+      💡 <strong>Formula-X Tip:</strong>
+      Don't just memorize a formula. Understand what every
+      symbol means and solve a question using it.
+    </div>
 
-  <h2>🧠 Formula Tricks</h2>
+  </section>
 
-  <div class="formula">
-    <h3>Newton's Second Law</h3>
-    <span class="formula-code">F = ma</span>
-    <p>Remember: Force = Mass × Acceleration.</p>
-  </div>
 
-  <div class="formula">
-    <h3>Kinetic Energy</h3>
-    <span class="formula-code">KE = ½mv²</span>
-    <p>Think: moving object = mass + speed squared.</p>
-  </div>
+  <footer>
+    © 2026 Formula-X | Learn Smarter 🚀
+  </footer>
 
-  <div class="formula">
-    <h3>Ohm's Law</h3>
-    <span class="formula-code">V = IR</span>
-    <p>V sits on top, I and R below in the triangle method.</p>
-  </div>
 
-  `;
-}
+  <script>
 
-function showRevision(){
+    function searchFormula() {
 
-  display(
-    formulas.slice(0,6),
-    "📝 Quick Revision"
-  );
+      const input =
+        document.getElementById("searchInput").value.trim();
 
-}
+      if (input === "") {
+        alert("Please enter a formula or topic.");
+        return;
+      }
 
-function searchFormula(){
+      alert(
+        "Formula-X search is coming soon! 🔥\n\nYou searched for: " + input
+      );
+    }
 
-  const query=document
-    .getElementById("search")
-    .value
-    .toLowerCase()
-    .trim();
-
-  if(query===""){
-    display(formulas,"🔥 Popular Formulas");
-    return;
-  }
-
-  const results=formulas.filter(f=>
-    f.name.toLowerCase().includes(query) ||
-    f.subject.toLowerCase().includes(query) ||
-    f.formula.toLowerCase().includes(query) ||
-    f.description.toLowerCase().includes(query)
-  );
-
-  display(results,"🔍 Search Results");
-
-}
-
-function calculator(){
-
-  const value=prompt(
-    "Enter a simple calculation, example: 25*4+10"
-  );
-
-  if(value===null) return;
-
-  try{
-
-    const result=Function(
-      '"use strict"; return ('+value+')'
-    )();
-
-    alert("Result = "+result);
-
-  }catch(e){
-
-    alert("Please enter a valid calculation.");
-
-  }
-
-}
-
-</script>
+  </script>
 
 </body>
 </html>

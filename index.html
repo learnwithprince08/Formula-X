@@ -1,292 +1,1037 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Formula-X | Learn Smarter</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f5f7fb;
-      color: #172033;
-    }
-
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #38bdf8;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #e0f2fe, #f8fafc);
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #0284c7;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #64748b;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .search-box {
-      margin: 30px auto 0;
-      max-width: 600px;
-      display: flex;
-      background: white;
-      border-radius: 12px;
-      padding: 7px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 15px;
-      font-size: 16px;
-    }
-
-    .search-box button {
-      border: none;
-      background: #0284c7;
-      color: white;
-      padding: 0 22px;
-      border-radius: 9px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .section {
-      padding: 50px 7%;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card .icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    .formula {
-      background: #111827;
-      color: white;
-      margin-top: 12px;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 18px;
-      text-align: center;
-    }
-
-    .tip {
-      background: #ecfeff;
-      border-left: 5px solid #06b6d4;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 25px;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      background: #111827;
-      color: #cbd5e1;
-      padding: 25px;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .search-box {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .search-box button {
-        padding: 14px;
-      }
-    }
-  </style>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FormulaX | Learn Smarter</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+--primary:#6366f1;
+--secondary:#8b5cf6;
+--bg:#f8fafc;
+--card:#fff;
+--text:#111827;
+--muted:#64748b;
+--border:#e2e8f0;
+}
+
+body.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--border:#334155;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
+}
+
+header{
+background:linear-gradient(135deg,#4f46e5,#7c3aed);
+color:#fff;
+padding:16px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:27px;
+font-weight:800;
+}
+
+.logo span{color:#facc15}
+
+.header-right{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.theme-btn{
+border:0;
+background:#ffffff25;
+color:#fff;
+width:40px;
+height:40px;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
+}
+
+.hero{
+padding:70px 6%;
+text-align:center;
+background:
+radial-gradient(circle at top right,#8b5cf62b,transparent 35%),
+radial-gradient(circle at bottom left,#6366f124,transparent 35%);
+}
+
+.hero h1{
+font-size:clamp(36px,7vw,64px);
+margin-bottom:15px;
+}
+
+.hero h1 span{color:var(--primary)}
+
+.hero p{
+color:var(--muted);
+max-width:650px;
+margin:auto;
+line-height:1.7;
+font-size:17px;
+}
+
+.search-box{
+max-width:700px;
+margin:30px auto 0;
+display:flex;
+background:var(--card);
+padding:7px;
+border:1px solid var(--border);
+border-radius:15px;
+box-shadow:0 10px 35px #00000012;
+}
+
+.search-box input{
+flex:1;
+border:0;
+outline:0;
+padding:15px;
+background:transparent;
+color:var(--text);
+font-size:16px;
+}
+
+.search-box button{
+border:0;
+background:var(--primary);
+color:white;
+padding:0 25px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:45px 6%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:25px;
+}
+
+.section-title h2{
+font-size:30px;
+margin-bottom:8px;
+}
+
+.section-title p{color:var(--muted)}
+
+.daily{
+background:linear-gradient(135deg,#4f46e5,#7c3aed);
+color:#fff;
+border-radius:20px;
+padding:30px;
+text-align:center;
+margin-bottom:35px;
+}
+
+.daily-formula{
+font-size:34px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:40px;
+}
+
+.stat{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:28px;
+color:var(--primary);
+margin-bottom:5px;
+}
+
+.categories{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:30px;
+}
+
+.category-btn{
+border:1px solid var(--border);
+background:var(--card);
+color:var(--text);
+padding:10px 18px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.category-btn.active,
+.category-btn:hover{
+background:var(--primary);
+color:white;
+border-color:var(--primary);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:23px;
+position:relative;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px #00000012;
+}
+
+.icon{
+font-size:30px;
+margin-bottom:12px;
+}
+
+.card h3{margin-bottom:8px}
+
+.card p{
+color:var(--muted);
+line-height:1.5;
+font-size:14px;
+}
+
+.formula{
+margin-top:18px;
+background:#6366f11a;
+color:var(--primary);
+padding:15px;
+border-radius:10px;
+font-weight:bold;
+text-align:center;
+font-size:19px;
+}
+
+.favorite{
+position:absolute;
+right:15px;
+top:15px;
+border:0;
+background:transparent;
+font-size:22px;
+cursor:pointer;
+}
+
+.card-actions{
+display:flex;
+gap:8px;
+margin-top:15px;
+}
+
+.small-btn{
+flex:1;
+border:1px solid var(--border);
+background:transparent;
+color:var(--text);
+padding:9px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.small-btn:hover{
+background:var(--primary);
+color:#fff;
+}
+
+.tip{
+margin-top:30px;
+padding:22px;
+border-radius:15px;
+background:#6366f11a;
+border:1px solid var(--border);
+line-height:1.6;
+}
+
+.quiz{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:25px;
+max-width:800px;
+margin:auto;
+}
+
+.question{
+font-size:20px;
+font-weight:bold;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+.options{
+display:grid;
+gap:10px;
+}
+
+.option{
+border:1px solid var(--border);
+background:transparent;
+color:var(--text);
+padding:14px;
+border-radius:10px;
+text-align:left;
+cursor:pointer;
+}
+
+.option:hover{
+border-color:var(--primary);
+background:#6366f112;
+}
+
+.result{
+margin-top:15px;
+font-weight:bold;
+}
+
+.next{
+display:none;
+margin-top:18px;
+border:0;
+background:var(--primary);
+color:white;
+padding:12px 22px;
+border-radius:9px;
+cursor:pointer;
+}
+
+.no-results{
+display:none;
+text-align:center;
+padding:30px;
+color:var(--muted);
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000a;
+z-index:300;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.modal-box{
+width:100%;
+max-width:550px;
+background:var(--card);
+color:var(--text);
+border-radius:20px;
+padding:28px;
+position:relative;
+}
+
+.close{
+position:absolute;
+right:18px;
+top:12px;
+border:0;
+background:transparent;
+color:var(--text);
+font-size:28px;
+cursor:pointer;
+}
+
+.modal-formula{
+background:#6366f11a;
+color:var(--primary);
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-size:25px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.modal-box p{
+line-height:1.6;
+color:var(--muted);
+}
+
+footer{
+text-align:center;
+background:#111827;
+color:#cbd5e1;
+padding:30px 20px;
+margin-top:30px;
+}
+
+footer strong{color:#fff}
+
+@media(max-width:650px){
+
+.header-tagline{display:none}
+
+.hero{padding:50px 5%}
+
+.search-box{
+flex-direction:column;
+gap:8px;
+}
+
+.search-box button{
+padding:14px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.section{
+padding:35px 5%;
+}
+}
+</style></head><body><header><div class="logo">Formula<span>X</span></div><div class="header-right">
+<div class="header-tagline">Learn Smarter 🚀</div>
+<button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+</div></header><section class="hero"><h1>Master Your <span>Formulas</span></h1><p>
+Search formulas, learn tricks, practice questions
+and revise faster with FormulaX.
+</p><div class="search-box"><input
+id="searchInput"
+type="text"
+placeholder="Search formula, topic or subject..."
+oninput="searchFormula()">
+
+<button onclick="searchFormula()">Search</button>
+
+</div></section><section class="section"><div class="daily"><h2>🔥 Formula of the Day</h2><div class="daily-formula" id="dailyFormula"></div><p id="dailyText"></p></div><div class="stats"><div class="stat">
+<strong id="viewCount">0</strong>
+Formulas Viewed
+</div><div class="stat">
+<strong id="favoriteCount">0</strong>
+Favorites
+</div><div class="stat">
+<strong id="quizScore">0</strong>
+Quiz Score
+</div></div><div class="section-title"><h2>📚 Explore FormulaX</h2><p>Choose a subject and start learning.</p></div><div class="categories"><button class="category-btn active"
+onclick="filterCategory('All',this)">
+All
+</button>
+
+<button class="category-btn"
+onclick="filterCategory('Physics',this)">
+⚡ Physics
+</button>
+
+<button class="category-btn"
+onclick="filterCategory('Mathematics',this)">
+📐 Mathematics
+</button>
+
+<button class="category-btn"
+onclick="filterCategory('Chemistry',this)">
+🧪 Chemistry
+</button>
+
+<button class="category-btn"
+onclick="showFavorites()">
+⭐ Favorites
+</button>
+
+</div><div class="cards" id="formulaCards"></div><div class="no-results" id="noResults">
+😕 No formulas found.
+</div><div class="tip">
+💡 <strong>FormulaX Tip:</strong>
+Don't just memorize a formula. Understand what every
+symbol means and solve a question using it.
+</div></section><section class="section"><div class="section-title"><h2>📝 Quick Practice</h2><p>Test your knowledge with FormulaX.</p></div><div class="quiz"><div class="question" id="question"></div><div class="options" id="options"></div><div class="result" id="result"></div><button class="next" id="next"
+onclick="nextQuestion()">
+Next Question →
+</button>
+
+</div></section><div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button>
+
+<h2 id="modalTitle"></h2><div class="modal-formula" id="modalFormula"></div><p id="modalDescription"></p><br><strong>🧠 Easy Trick</strong>
+
+<p id="modalTrick"></p><br><strong>📌 Remember</strong>
+
+<p id="modalRemember"></p></div></div><footer><strong>FormulaX</strong>
+
+<br><br>
+
+Learn Smarter • Revise Faster • Practice Better 🚀
+
+<br><br>
+
+© 2026 FormulaX
+
+</footer><script>
+
+const formulas=[
+
+{
+id:1,
+subject:"Physics",
+icon:"⚡",
+title:"Newton's Second Law",
+formula:"F = ma",
+description:"Force is equal to mass multiplied by acceleration.",
+trick:"Force = Mass × Acceleration.",
+remember:"F = Force, m = Mass, a = Acceleration."
+},
+
+{
+id:2,
+subject:"Physics",
+icon:"🚀",
+title:"Kinetic Energy",
+formula:"KE = ½mv²",
+description:"Kinetic energy is the energy possessed by an object due to motion.",
+trick:"Moving object = kinetic energy.",
+remember:"Velocity is squared."
+},
+
+{
+id:3,
+subject:"Physics",
+icon:"🌍",
+title:"Potential Energy",
+formula:"PE = mgh",
+description:"Potential energy near Earth's surface depends on mass, gravity and height.",
+trick:"Higher object = more potential energy.",
+remember:"m = mass, g = gravity, h = height."
+},
+
+{
+id:4,
+subject:"Physics",
+icon:"💡",
+title:"Ohm's Law",
+formula:"V = IR",
+description:"Voltage is equal to current multiplied by resistance.",
+trick:"V = I × R.",
+remember:"V = voltage, I = current, R = resistance."
+},
+
+{
+id:5,
+subject:"Physics",
+icon:"🏃",
+title:"Momentum",
+formula:"p = mv",
+description:"Momentum is the product of mass and velocity.",
+trick:"Momentum = mass × velocity.",
+remember:"Momentum is a vector quantity."
+},
+
+{
+id:6,
+subject:"Mathematics",
+icon:"📐",
+title:"Pythagoras Theorem",
+formula:"a² + b² = c²",
+description:"In a right triangle, the square of the hypotenuse equals the sum of the squares of the other sides.",
+trick:"Longest side = c.",
+remember:"Use for right-angled triangles."
+},
+
+{
+id:7,
+subject:"Mathematics",
+icon:"🔢",
+title:"Quadratic Formula",
+formula:"x = (-b ± √(b² - 4ac)) / 2a",
+description:"Used to find the roots of ax² + bx + c = 0.",
+trick:"Minus b, plus-minus root, over 2a.",
+remember:"b² - 4ac is the discriminant."
+},
+
+{
+id:8,
+subject:"Mathematics",
+icon:"⭕",
+title:"Area of Circle",
+formula:"A = πr²",
+description:"Area of a circle is pi multiplied by radius squared.",
+trick:"π × radius × radius.",
+remember:"r means radius."
+},
+
+{
+id:9,
+subject:"Mathematics",
+icon:"📊",
+title:"Slope",
+formula:"m = (y₂-y₁)/(x₂-x₁)",
+description:"Slope measures the steepness of a line.",
+trick:"Rise over run.",
+remember:"Change in y divided by change in x."
+},
+
+{
+id:10,
+subject:"Chemistry",
+icon:"🧪",
+title:"Ideal Gas Equation",
+formula:"PV = nRT",
+description:"Connects pressure, volume, amount, gas constant and temperature.",
+trick:"P-V on one side, n-R-T on the other.",
+remember:"Temperature should be in Kelvin."
+},
+
+{
+id:11,
+subject:"Chemistry",
+icon:"⚗️",
+title:"Molarity",
+formula:"M = moles / volume",
+description:"Molarity is moles of solute per litre of solution.",
+trick:"Moles ÷ litres.",
+remember:"Volume is generally measured in litres."
+},
+
+{
+id:12,
+subject:"Chemistry",
+icon:"🔬",
+title:"Density",
+formula:"ρ = m/V",
+description:"Density is mass per unit volume.",
+trick:"Mass ÷ volume.",
+remember:"ρ represents density."
+}
+
+];
+
+
+let favorites=
+JSON.parse(localStorage.getItem("fxFavorites"))||[];
+
+let viewed=
+Number(localStorage.getItem("fxViewed"))||0;
+
+let score=
+Number(localStorage.getItem("fxScore"))||0;
+
+let currentCategory="All";
+
+
+function renderCards(list=formulas){
+
+const box=document.getElementById("formulaCards");
+
+box.innerHTML="";
+
+document.getElementById("noResults").style.display=
+list.length?"none":"block";
+
+list.forEach(item=>{
+
+const fav=favorites.includes(item.id);
+
+const card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<button class="favorite"
+onclick="toggleFavorite(${item.id})">
+${fav?"⭐":"☆"}
+</button>
+
+<div class="icon">${item.icon}</div>
+
+<h3>${item.title}</h3>
+
+<p>${item.subject}</p>
+
+<div class="formula">${item.formula}</div>
+
+<div class="card-actions">
+
+<button class="small-btn"
+onclick="openFormula(${item.id})">
+View
+</button>
+
+<button class="small-btn"
+onclick="learned()">
+✓ Learned
+</button>
+
+</div>
+`;
+
+box.appendChild(card);
+
+});
+
+}
+
+
+function filterCategory(category,button){
+
+currentCategory=category;
+
+document.querySelectorAll(".category-btn")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+document.getElementById("searchInput").value="";
+
+renderCards(
+category==="All"
+?formulas
+:formulas.filter(f=>f.subject===category)
+);
+
+}
+
+
+function searchFormula(){
+
+const q=
+document.getElementById("searchInput")
+.value.toLowerCase()
+.trim();
+
+let list=formulas;
+
+if(currentCategory!=="All"){
+list=list.filter(f=>f.subject===currentCategory);
+}
+
+if(q){
+
+list=list.filter(f=>
+f.title.toLowerCase().includes(q)||
+f.formula.toLowerCase().includes(q)||
+f.subject.toLowerCase().includes(q)||
+f.description.toLowerCase().includes(q)
+);
+
+}
+
+renderCards(list);
+
+}
+
+
+function toggleFavorite(id){
+
+if(favorites.includes(id)){
+
+favorites=favorites.filter(x=>x!==id);
+
+}else{
+
+favorites.push(id);
+
+}
+
+localStorage.setItem(
+"fxFavorites",
+JSON.stringify(favorites)
+);
+
+updateStats();
+searchFormula();
+
+}
+
+
+function showFavorites(){
+
+const list=
+formulas.filter(f=>favorites.includes(f.id));
+
+renderCards(list);
+
+}
+
+
+function openFormula(id){
+
+const item=formulas.find(f=>f.id===id);
+
+if(!item)return;
+
+document.getElementById("modalTitle")
+.textContent=item.title;
+
+document.getElementById("modalFormula")
+.textContent=item.formula;
+
+document.getElementById("modalDescription")
+.textContent=item.description;
+
+document.getElementById("modalTrick")
+.textContent=item.trick;
+
+document.getElementById("modalRemember")
+.textContent=item.remember;
+
+document.getElementById("modal")
+.style.display="flex";
+
+viewed++;
+
+localStorage.setItem("fxViewed",viewed);
+
+updateStats();
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal")
+.style.display="none";
+
+}
+
+
+function learned(){
+
+viewed++;
+
+localStorage.setItem("fxViewed",viewed);
+
+updateStats();
+
+alert("Formula marked as learned 🎉");
+
+}
+
+
+function updateStats(){
+
+document.getElementById("viewCount")
+.textContent=viewed;
+
+document.getElementById("favoriteCount")
+.textContent=favorites.length;
+
+document.getElementById("quizScore")
+.textContent=score;
+
+}
+
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+const dark=
+document.body.classList.contains("dark");
+
+localStorage.setItem("fxDark",dark);
+
+document.getElementById("themeBtn")
+.textContent=dark?"☀️":"🌙";
+
+}
+
+
+if(localStorage.getItem("fxDark")==="true"){
+
+document.body.classList.add("dark");
+
+document.getElementById("themeBtn")
+.textContent="☀️";
+
+}
+
+
+const daily=
+formulas[new Date().getDate()%formulas.length];
+
+document.getElementById("dailyFormula")
+.textContent=daily.formula;
 
-<body>
+document.getElementById("dailyText")
+.textContent=
+daily.title+" • "+daily.description;
 
-  <header>
-    <div class="logo">Formula<span>X</span></div>
-    <div>Learn Smarter 🚀</div>
-  </header>
 
-  <section class="hero">
+const questions=[
 
-    <h1>Master Your <span>Formulas</span></h1>
+{
+q:"Which formula represents Newton's Second Law?",
+o:["V = IR","F = ma","p = mv","PV = nRT"],
+a:"F = ma"
+},
 
-    <p>
-      Quick formulas, easy tricks and smart revision tools
-      for students.
-    </p>
+{
+q:"Which formula represents kinetic energy?",
+o:["mgh","ma","½mv²","mv"],
+a:"½mv²"
+},
 
-    <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search a formula..."
-      >
+{
+q:"What is the area of a circle?",
+o:["2πr","πr²","πd","r²"],
+a:"πr²"
+},
 
-      <button onclick="searchFormula()">Search</button>
-    </div>
+{
+q:"Which is the ideal gas equation?",
+o:["F = ma","V = IR","PV = nRT","p = mv"],
+a:"PV = nRT"
+},
 
-  </section>
+{
+q:"What does p = mv represent?",
+o:["Power","Momentum","Pressure","Potential Energy"],
+a:"Momentum"
+}
 
+];
 
-  <section class="section">
 
-    <h2>Explore Formula-X</h2>
+let questionIndex=0;
+let answered=false;
 
-    <div class="cards">
 
-      <div class="card">
-        <div class="icon">⚡</div>
-        <h3>Physics</h3>
-        <p>Important physics formulas in one place.</p>
+function loadQuestion(){
 
-        <div class="formula">
-          F = ma
-        </div>
-      </div>
+answered=false;
 
+const q=questions[questionIndex];
 
-      <div class="card">
-        <div class="icon">📐</div>
-        <h3>Mathematics</h3>
-        <p>Useful formulas and easy remembering tricks.</p>
+document.getElementById("question")
+.textContent=q.q;
 
-        <div class="formula">
-          a² + b² = c²
-        </div>
-      </div>
+const options=
+document.getElementById("options");
 
+options.innerHTML="";
 
-      <div class="card">
-        <div class="icon">🧪</div>
-        <h3>Chemistry</h3>
-        <p>Important equations and concepts for quick revision.</p>
+document.getElementById("result")
+.textContent="";
 
-        <div class="formula">
-          PV = nRT
-        </div>
-      </div>
+document.getElementById("next")
+.style.display="none";
 
+q.o.forEach(option=>{
 
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>Formula Tricks</h3>
-        <p>Simple tricks to remember difficult formulas.</p>
+const btn=document.createElement("button");
 
-        <div class="formula">
-          Learn → Recall → Practice
-        </div>
-      </div>
+btn.className="option";
 
-    </div>
+btn.textContent=option;
 
+btn.onclick=()=>answer(option);
 
-    <div class="tip">
-      💡 <strong>Formula-X Tip:</strong>
-      Don't just memorize a formula. Understand what every
-      symbol means and solve a question using it.
-    </div>
+options.appendChild(btn);
 
-  </section>
+});
 
+}
 
-  <footer>
-    © 2026 Formula-X | Learn Smarter 🚀
-  </footer>
 
+function answer(option){
 
-  <script>
+if(answered)return;
 
-    function searchFormula() {
+answered=true;
 
-      const input =
-        document.getElementById("searchInput").value.trim();
+const correct=questions[questionIndex].a;
 
-      if (input === "") {
-        alert("Please enter a formula or topic.");
-        return;
-      }
+if(option===correct){
 
-      alert(
-        "Formula-X search is coming soon! 🔥\n\nYou searched for: " + input
-      );
-    }
+document.getElementById("result")
+.textContent="✅ Correct! 🔥";
 
-  </script>
+score++;
 
-</body>
-    </html>
+localStorage.setItem("fxScore",score);
+
+}else{
+
+document.getElementById("result")
+.textContent=
+"❌ Correct answer: "+correct;
+
+}
+
+updateStats();
+
+document.getElementById("next")
+.style.display="inline-block";
+
+}
+
+
+function nextQuestion(){
+
+questionIndex++;
+
+if(questionIndex>=questions.length){
+
+questionIndex=0;
+
+alert(
+"Quiz completed! 🎉\nYour score: "+score
+);
+
+}
+
+loadQuestion();
+
+}
+
+
+window.onclick=function(e){
+
+if(e.target===document.getElementById("modal")){
+closeModal();
+}
+
+};
+
+
+renderCards();
+
+updateStats();
+
+loadQuestion();
+
+</script></body>
+                                                </html>

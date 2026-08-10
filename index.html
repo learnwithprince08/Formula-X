@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Formula-X | Learn Smarter</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #0284c7;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #64748b;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .search-box {
+      margin: 30px auto 0;
+      max-width: 600px;
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      padding: 7px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #0284c7;
+      color: white;
+      padding: 0 22px;
+      border-radius: 9px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 50px 7%;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .formula {
+      background: #111827;
+      color: white;
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .tip {
+      background: #ecfeff;
+      border-left: 5px solid #06b6d4;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #cbd5e1;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .search-box button {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Formula<span>X</span></div>
+    <div>Learn Smarter 🚀</div>
+  </header>
+
+  <section class="hero">
+
+    <h1>Master Your <span>Formulas</span></h1>
+
+    <p>
+      Quick formulas, easy tricks and smart revision tools
+      for students.
+    </p>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search a formula..."
+      >
+
+      <button onclick="searchFormula()">Search</button>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <h2>Explore Formula-X</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Physics</h3>
+        <p>Important physics formulas in one place.</p>
+
+        <div class="formula">
+          F = ma
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">📐</div>
+        <h3>Mathematics</h3>
+        <p>Useful formulas and easy remembering tricks.</p>
+
+        <div class="formula">
+          a² + b² = c²
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Chemistry</h3>
+        <p>Important equations and concepts for quick revision.</p>
+
+        <div class="formula">
+          PV = nRT
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>Formula Tricks</h3>
+        <p>Simple tricks to remember difficult formulas.</p>
+
+        <div class="formula">
+          Learn → Recall → Practice
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="tip">
+      💡 <strong>Formula-X Tip:</strong>
+      Don't just memorize a formula. Understand what every
+      symbol means and solve a question using it.
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 Formula-X | Learn Smarter 🚀
+  </footer>
+
+
+  <script>
+
+    function searchFormula() {
+
+      const input =
+        document.getElementById("searchInput").value.trim();
+
+      if (input === "") {
+        alert("Please enter a formula or topic.");
+        return;
+      }
+
+      alert(
+        "Formula-X search is coming soon! 🔥\n\nYou searched for: " + input
+      );
+    }
+
+  </script>
+
+</body>
+    </html>
